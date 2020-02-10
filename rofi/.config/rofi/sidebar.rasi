@@ -43,11 +43,11 @@
 }
 #window {
     //height:   97.65625%;
-    height: 100%;
+    height: 80%;
     width: 30em;
-    location: west;
-    anchor:   west;
-    border:  26px 2px 2px 2px;
+    location: east;
+    anchor:   east;
+    border:  1px 1px 1px 1px;
     //border-color: #ffff00;
     border-color: #2a5491;
     text-color: #9ea7a6;

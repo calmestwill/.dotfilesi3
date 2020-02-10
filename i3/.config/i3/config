@@ -14,6 +14,8 @@ set $term termite
 set $menu rofi -show run
 # Wallpaper
 set $wallpaper arch.png
+# Command called to lock the screen
+set $Locker sleep 0.1 && ~/.config/i3/lock.sh && sleep 1
 # Workspaces
 set $ws1 "1"
 set $ws2 "2"
@@ -32,14 +34,9 @@ set $ws10 "10"
 
 # Set wallpaper
 exec --no-startup-id feh --bg-scale ~/.config/i3/arch.png
+# Start the compositor
 exec --no-startup-id picom
-#output * bg $wallpaper fill
-# Auto lock, turn of display after inactivity and lock on sleep
-#exec swayidle -w \
-#         timeout 600 'swaymsg exec ~/.config/sway/lock.sh' \
-#         timeout 900 'swaymsg "output * dpms off"' \
-#              resume 'swaymsg "output * dpms on"' \
-#         before-sleep 'swaymsg exec ~/.config/sway/lock.sh'
+# Container configuration
 hide_edge_borders smart
 default_border pixel 1
 
@@ -47,16 +44,7 @@ default_border pixel 1
 # ---------- Input Configuration ----------
 # -----------------------------------------
 
-# Touchpad settings
-#input "1102:4618:AUI1661:00_044E:120A_Touchpad" {
-#	natural_scroll enabled
-#	tap enabled
-#        dwt disabled
-#	scroll_factor 1.25
-#        accel_profile adaptive
-#        scroll_method two_finger
-#        tap_button_map lrm
-#}
+# Set the keyboard layout
 exec --no-startup-id setxkbmap -layout gb
 
 # -------------------------------------------
@@ -65,33 +53,70 @@ exec --no-startup-id setxkbmap -layout gb
 
 # Start the status bar
 exec --no-startup-id polybar example
-# Start mako for notifications
-#exec mako --default-timeout 5000 --icons 1 --background-color "#232c31e0" --text-color "#9ea7a6" --font Ubuntu
-# Startup programs
+# Start dunst for notifications
+exec --no-startup-dunst
+# Tray programs
 exec --no-startup-id nm-applet
 exec --no-startup-id nextcloud --background
 exec --no-startup-id blueman-applet
+
+# ---------------------------
+# ---------- Modes ----------
+# ---------------------------
+
+# Mode used to show menu to lock, logout, suspend etc
+set $mode_system System: (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
+mode "$mode_system" {
+    # Select option
+    bindsym e exec --no-startup-id i3-msg exit, mode "default"
+    bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
+    bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
+    bindsym r exec --no-startup-id systemctl reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"  
+    # Return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+Insert mode "$mode_system"
+
+# Mode used to resize containers
+mode "resize" {
+    # Change window size
+    bindsym $left resize shrink width 10px
+    bindsym $down resize grow height 10px
+    bindsym $up resize shrink height 10px
+    bindsym $right resize grow width 10px
+    # Change window size with the arrow keys
+    bindsym Left resize shrink width 10px
+    bindsym Down resize grow height 10px
+    bindsym Up resize shrink height 10px
+    bindsym Right resize grow width 10px
+    # Return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
 
 # ------------------------------
 # ---------- Keybinds ----------
 # ------------------------------
 
+# i3 KEYBINDS
 bindsym $mod+Shift+q kill
 floating_modifier $mod
 bindsym $mod+Shift+r reload
-bindsym $mod+Shift+w exec ~/.config/i3/lock.sh
-bindsym $mod+Escape exec swaynag -t warning -m 'Do you want to exit Sway?' -b 'Yes, exit sway' 'swaymsg exit'
 
 # APPLICATIONS
 bindsym $mod+Return exec $term # Terminal
 bindsym $mod+d exec $menu # Launcher
 bindsym $mod+Shift+c exec firefox
-bindsym $mod+Shift+e exec urxvt -e ranger
-bindsym $mod+Shift+y exec urxvt -e mpsyt
+bindsym $mod+Shift+e exec termite -e ranger
+bindsym $mod+Shift+y exec termite -e mpsyt
 
 # COMMAND KEYBINDS
-bindsym XF86MonBrightnessUp exec --no-startup-id "light -A 10"
-bindsym XF86MonBrightnessDown exec --no-startup-id "light -U 10"
+bindsym XF86MonBrightnessUp exec --no-startup-id "xbacklight -inc 10"
+bindsym XF86MonBrightnessDown exec --no-startup-id "xbacklight -dec 10"
 bindsym XF86AudioMute exec ~/.config/i3/volume_keys.sh M  # To adjust the volume
 bindsym --release Print exec grim ~/Pictures/Screenshots/$(date +'%s_grim.png') # Save screenshot to screenshots folder 
 bindsym XF86AudioRaiseVolume exec ~/.config/i3/volume_keys.sh +2%
@@ -155,21 +180,4 @@ bindsym $mod+a focus parent
 bindsym $mod+Shift+minus move scratchpad
 # Cycle scratchpad windows
 bindsym $mod+minus scratchpad show
-# Resizing containers
-mode "resize" {
-    # Change window size
-    bindsym $left resize shrink width 10px
-    bindsym $down resize grow height 10px
-    bindsym $up resize shrink height 10px
-    bindsym $right resize grow width 10px
-    # Change window size with the arrow keys
-    bindsym Left resize shrink width 10px
-    bindsym Down resize grow height 10px
-    bindsym Up resize shrink height 10px
-    bindsym Right resize grow width 10px
-    # Return to default mode
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-bindsym $mod+r mode "resize"
 

@@ -1,1 +1,24 @@
-swaylock -f --font "Ubuntu" --clock --screenshots --indicator --effect-blur 8x8 --inside-color "#1f1f1f" --ring-color "#e5a445" --datestr "%a %d %b %Y" --timestr "%H:%M" --key-hl-color "#f6d98f" --indicator-radius 100 --inside-ver-color "#1f1f1f" --ring-ver-color "#e5a445" --text-ver-color "#e5a445" --text-wrong-color "#e5a445" --ring-wrong-color "#e5a445" --inside-wrong-color "#1f1f1f" --text-clear-color "#e5a445" --ring-clear-color "#e5a445" --inside-clear-color "#1f1f1f" --text-clear-color "#e5a445" --bs-hl-color "#f6d98f"
+#!/bin/sh
+
+bg=191314
+
+ring=9e5c967f
+inside=591c547f
+
+ringver=3841a17f
+insidever=403e637f
+
+ringwrong=9f202d7f
+insidewrong=6134327f
+
+keyhl=e77cdb7f
+bshl=582da37f
+
+i3lock --blur=10 \
+       --veriftext="" --wrongtext="" --noinputtext="" \
+       --insidecolor=$inside --ringcolor=$ring \
+       --insidevercolor=$insidever --ringvercolor=$ringver \
+       --insidewrongcolor=$insidewrong --ringwrongcolor=$ringwrong \
+       --keyhlcolor=$keyhl --bshlcolor=$bshl \
+       --linecolor=${bg}ff --separatorcolor=${bg}7f \
+       --radius 130 --ring-width 10 --bar-indicator --bar-color=00000000
