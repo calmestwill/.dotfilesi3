@@ -13,7 +13,7 @@ set $right l
 set $term termite
 set $menu rofi -show run
 # Wallpaper
-set $wallpaper arch.png
+set $wallpaper ~/.config/i3/arch.png
 # Command called to lock the screen
 set $Locker sleep 0.1 && ~/.config/i3/lock.sh && sleep 1
 # Workspaces
@@ -33,7 +33,7 @@ set $ws10 "10"
 # -------------------------------------------
 
 # Set wallpaper
-exec --no-startup-id feh --bg-scale ~/.config/i3/arch.png
+exec --no-startup-id feh --bg-scale $wallpaper
 # Start the compositor
 exec --no-startup-id picom
 # Container configuration
@@ -54,7 +54,15 @@ exec --no-startup-id setxkbmap -layout gb
 # Start the status bar
 exec --no-startup-id polybar example
 # Start dunst for notifications
-exec --no-startup-dunst
+exec --no-startup-id dunst
+
+#NOT WORKING NEEDS FIX SOON
+# Start xautolock to lock the screen after specific amount of time
+exec --no-startup-id xautolock -time 10 -locker $Locker
+# Start xss-lock to lock on suspend and hibernate
+exec --no-startup-id xss-lock -- $Locker
+
+
 # Tray programs
 exec --no-startup-id nm-applet
 exec --no-startup-id nextcloud --background
