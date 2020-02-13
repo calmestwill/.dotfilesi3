@@ -15,7 +15,7 @@ set $menu rofi -show run
 # Wallpaper
 set $wallpaper ~/.config/i3/arch.png
 # Command called to lock the screen
-set $Locker sleep 0.1 && ~/.config/i3/lock.sh && sleep 1
+set $Locker ~/.config/i3/lock.sh
 # Workspaces
 set $ws1 "1"
 set $ws2 "2"
@@ -45,23 +45,21 @@ default_border pixel 1
 # -----------------------------------------
 
 # Set the keyboard layout
-exec --no-startup-id setxkbmap -layout gb
+exec --no-startup-id ~/.config/i3/keyboard_layout.sh
 
 # -------------------------------------------
 # ---------- Startup configuration ----------
 # -------------------------------------------
 
 # Start the status bar
-exec --no-startup-id polybar example
+exec --no-startup-id polybar topbar
 # Start dunst for notifications
 exec --no-startup-id dunst
 
-#NOT WORKING NEEDS FIX SOON
 # Start xautolock to lock the screen after specific amount of time
 exec --no-startup-id xautolock -time 10 -locker $Locker
 # Start xss-lock to lock on suspend and hibernate
 exec --no-startup-id xss-lock -- $Locker
-
 
 # Tray programs
 exec --no-startup-id nm-applet
@@ -76,10 +74,10 @@ exec --no-startup-id blueman-applet
 set $mode_system System: (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
     # Select option
-    bindsym l exec --no-startup-id $Locker, mode "default"
+    bindsym l exec --no-startup-id sleep 0.5 && $Locker, mode "default"
     bindsym e exec --no-startup-id i3-msg exit, mode "default"
-    bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
-    bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
+    bindsym s exec --no-startup-id sleep 0.5 && $Locker && sleep 1 && systemctl suspend, mode "default"
+    bindsym h exec --no-startup-id sleep 0.5 && $Locker && sleep 1 && systemctl hibernate, mode "default"
     bindsym r exec --no-startup-id systemctl reboot, mode "default"
     bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"  
     # Return to default mode
@@ -127,7 +125,7 @@ bindsym $mod+Shift+y exec termite -e mpsyt
 bindsym XF86MonBrightnessUp exec --no-startup-id "xbacklight -inc 10"
 bindsym XF86MonBrightnessDown exec --no-startup-id "xbacklight -dec 10"
 bindsym XF86AudioMute exec ~/.config/i3/volume_keys.sh M  # To adjust the volume
-bindsym --release Print exec grim ~/Pictures/Screenshots/$(date +'%s_grim.png') # Save screenshot to screenshots folder 
+# NEED A SCREENSHOT PROGRAM HERE! # Save screenshot to screenshots folder 
 bindsym XF86AudioRaiseVolume exec ~/.config/i3/volume_keys.sh +2%
 bindsym XF86AudioLowerVolume exec ~/.config/i3/volume_keys.sh -2%
 
