@@ -22,7 +22,6 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
 # ------------------------- Aliases -------------------------------
 alias zshconf="$EDITOR ~/.zshrc"
 alias i3conf="$EDITOR ~/.config/i3/config"
-alias barconf="$EDITOR ~/.config/polybar/config"
 
 # ---------------------- Initialisation ---------------------------
 neofetch
