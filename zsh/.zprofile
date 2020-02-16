@@ -1,5 +1,5 @@
 # Mount encrypted drives on login
-~/.mount/mountDrives.sh
+~/.mount/mountDrives.sh | lolcat -a  
 
 # Start sway upon login to tty1
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then

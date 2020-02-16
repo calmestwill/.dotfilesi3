@@ -42,52 +42,45 @@ cursor_blink = on
 #scrollbar = off
 
 [colors]
-# If both of these are unset, cursor falls back to the foreground color,
-# and cursor_foreground falls back to the background color.
-#cursor = #dcdccc
-#cursor_foreground = #dcdccc
 
-#foreground = #dcdccc
-#foreground_bold = #ffffff
-#background = #3f3f3f
-
-# 20% background transparency (requires a compositor)
-#background = rgba(63, 63, 63, 0.8)
-
-# If unset, will reverse foreground and background
-highlight = #2f2f2f
+# special
+foreground      = #e8dfd6
+foreground_bold = #e8dfd6
+cursor          = #e8dfd6
+background      = #021b21
 
 # black
-color0 = #232c31
-color8 = #3f4944
+color0  = #032c36
+color8  = #065f73
 
 # red
-color1 = #2a5491
-color9 = #2a5491
+color1  = #c2454e
+color9  = #ef5847
 
 # green
-color2 = #237986
-color10 = #237986
+color2  = #7cbf9e
+color10 = #a2d9b1
 
 # yellow
-color3 = #a03b1e
-color11 = #a03b1e
+color3  = #8a7a63
+color11 = #beb090
 
 # blue
-color4 = #484d79
-color12 = #484d79
+color4  = #2e3340
+color12 = #61778d
 
 # magenta
-color5 = #c59820
-color13 = #c59820
+color5  = #ff5879
+color13 = #ff99a1
 
 # cyan
-color6 = #b02f30
-color14 = #b02f30
+color6  = #44b5b1
+color14 = #9ed9d8
 
 # white
-color7 = #9ea7a6
-color15 = #b5d8f6
+color7  = #f2f1b9
+color15 = #f6f6c9
+
 
 [hints]
 #font = Monospace 12

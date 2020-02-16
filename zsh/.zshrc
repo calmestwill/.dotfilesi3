@@ -24,5 +24,6 @@ alias zshconf="$EDITOR ~/.zshrc"
 alias i3conf="$EDITOR ~/.config/i3/config"
 
 # ---------------------- Initialisation ---------------------------
-neofetch
+(cat ~/.cache/wal/sequences &)
+neofetch | lolcat -S 35 -a -s 2500
 

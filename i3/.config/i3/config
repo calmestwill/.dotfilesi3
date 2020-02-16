@@ -13,7 +13,7 @@ set $right l
 set $term termite
 set $menu rofi -show run
 # Wallpaper
-set $wallpaper ~/.config/i3/arch.png
+set $wallpaper ~/.config/i3/wallpaper.jpg
 # Command called to lock the screen
 set $Locker ~/.config/i3/lock.sh
 # Workspaces
@@ -33,7 +33,9 @@ set $ws10 "10"
 # -------------------------------------------
 
 # Set wallpaper
-exec --no-startup-id feh --bg-scale $wallpaper
+#exec --no-startup-id feh --bg-scale $wallpaper
+# Set terminal color scheme and wallpaper
+exec --no-startup-id wal -i $wallpaper -e
 # Start the compositor
 exec --no-startup-id picom
 # Container configuration
@@ -60,6 +62,7 @@ exec --no-startup-id dunst
 exec --no-startup-id xautolock -time 10 -locker $Locker
 # Start xss-lock to lock on suspend and hibernate
 exec --no-startup-id xss-lock -- $Locker
+
 
 # Tray programs
 exec --no-startup-id nm-applet
