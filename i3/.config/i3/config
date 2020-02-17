@@ -32,8 +32,6 @@ set $ws10 "10"
 # ---------- Display Configuration ----------
 # -------------------------------------------
 
-# Set wallpaper
-#exec --no-startup-id feh --bg-scale $wallpaper
 # Set terminal color scheme and wallpaper
 exec --no-startup-id wal -i $wallpaper -e
 # Start the compositor
@@ -57,17 +55,11 @@ exec --no-startup-id ~/.config/i3/keyboard_layout.sh
 exec --no-startup-id ~/.config/i3/start_bar.sh
 # Start dunst for notifications
 exec --no-startup-id dunst
-
-# Start xautolock to lock the screen after specific amount of time
-exec --no-startup-id xautolock -time 10 -locker $Locker
 # Start xss-lock to lock on suspend and hibernate
 exec --no-startup-id xss-lock -- $Locker
 
-
-# Tray programs
-exec --no-startup-id nm-applet
+# Startup programs
 exec --no-startup-id nextcloud --background
-exec --no-startup-id blueman-applet
 
 # ---------------------------
 # ---------- Modes ----------
