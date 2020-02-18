@@ -39,6 +39,17 @@ exec --no-startup-id picom
 # Container configuration
 hide_edge_borders smart
 default_border pixel 1
+# Font
+font pango:Terminus 10
+
+# Colors
+# class                 border  backgr. text    indicator child_border
+client.focused          #4c7899 #285577 #ffffff #2e9ef4   #285577
+client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
+client.unfocused        #333333 #222222 #888888 #292d2e   #222222
+client.urgent           #2f343a #900000 #ffffff #900000   #900000
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+client.background       #ffffff
 
 # -----------------------------------------
 # ---------- Input Configuration ----------
@@ -120,7 +131,8 @@ bindsym $mod+Shift+y exec termite -e mpsyt
 bindsym XF86MonBrightnessUp exec --no-startup-id "xbacklight -inc 10"
 bindsym XF86MonBrightnessDown exec --no-startup-id "xbacklight -dec 10"
 bindsym XF86AudioMute exec ~/.config/i3/volume_keys.sh M  # To adjust the volume
-# NEED A SCREENSHOT PROGRAM HERE! # Save screenshot to screenshots folder 
+bindsym --release Print exec import ~/Pictures/Screenshots/$(date +'%s_screenshot.png')
+bindsym --release Shift+Print exec import -window root ~/Pictures/Screenshots/$(date +'%s_screenshot.png')
 bindsym XF86AudioRaiseVolume exec ~/.config/i3/volume_keys.sh +2%
 bindsym XF86AudioLowerVolume exec ~/.config/i3/volume_keys.sh -2%
 
