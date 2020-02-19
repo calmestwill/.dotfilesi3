@@ -1,2 +1,2 @@
-mountdrives/.mount/*
-!mountdrives/.mount/mountDrives.sh
+scripts/.mount/*
+!scripts/.mount/mountDrives.sh
