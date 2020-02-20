@@ -1,6 +1,5 @@
 # Mount encrypted drives on login
 ~/.mount/mountDrives.sh 
-xrdb ~/.cache/wal/colors.Xresources
 
 # Start sway upon login to tty1
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
