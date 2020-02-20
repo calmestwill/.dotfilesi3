@@ -39,6 +39,7 @@ exec --no-startup-id picom
 # Container configuration
 hide_edge_borders smart
 default_border pixel 1
+#gaps inner 7
 # Font
 font pango:Terminus 10
 
@@ -125,6 +126,7 @@ bindsym $mod+Return exec $term # Terminal
 bindsym $mod+d exec $menu # Launcher
 bindsym $mod+Shift+c exec firefox
 bindsym $mod+Shift+e exec termite -e ranger
+bindsym $mod+Shift+n exec notable
 bindsym $mod+Shift+y exec termite -e mpsyt
 
 # COMMAND KEYBINDS
