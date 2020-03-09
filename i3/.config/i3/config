@@ -127,7 +127,7 @@ bindsym $mod+d exec $menu # Launcher
 bindsym $mod+Shift+c exec firefox
 bindsym $mod+Shift+e exec termite -e ranger
 bindsym $mod+Shift+n exec notable
-bindsym $mod+Shift+y exec termite -e mpsyt
+bindsym $mod+Shift+v exec code
 
 # COMMAND KEYBINDS
 bindsym XF86MonBrightnessUp exec --no-startup-id "xbacklight -inc 10"
