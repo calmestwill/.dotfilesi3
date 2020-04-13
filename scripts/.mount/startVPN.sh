@@ -1,2 +1,2 @@
 #!/bin/sh
-sudo protonvpn connect -f &
+sudo protonvpn connect -f &>/dev/null &
