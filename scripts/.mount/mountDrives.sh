@@ -31,3 +31,5 @@ else
 	echo -e "No drives for hostname. Have you set the correct hostname? \n"
 
 fi
+
+sudo protonvpn c -f &
