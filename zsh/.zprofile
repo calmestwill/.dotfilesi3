@@ -1,9 +1,6 @@
 # Mount encrypted drives on login
 ~/.mount/mountDrives.sh 
 
-# Start VPN upon login
-~/.mount/startVPN.sh
-
 # Start sway upon login to tty1
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
 	
