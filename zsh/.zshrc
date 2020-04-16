@@ -25,5 +25,5 @@ alias i3conf="$EDITOR ~/.config/i3/config"
 
 # ---------------------- Initialisation ---------------------------
 (cat ~/.cache/wal/sequences &)
-neofetch | lolcat -S 35 -a -s 2500
+neofetch | lolcat -S -10 -a -s 2500 -F 0.05
 

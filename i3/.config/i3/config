@@ -117,6 +117,9 @@ bindsym $mod+r mode "resize"
 # ---------- Keybinds ----------
 # ------------------------------
 
+# LIGHTING KEYBINDS
+bindsym $mod+BackSpace exec lifx toggle
+
 # i3 KEYBINDS
 bindsym $mod+Shift+q kill
 floating_modifier $mod
