@@ -49,29 +49,31 @@ cursor_blink = on
 #cursor          = #e8dfd6
 #background      = #0f1423
 
+
 #-- Special
-background=#0f1423
-foreground=#abbfea
-foreground_bold=abbfea
-cursor=#abbfea
+background=#1d0f32
+foreground=#ccbbc5
+foreground_bold=#ccbbc5
+cursor=#ccbbc5
 
 #-- Colors
-color0=#0f1423
-color1=#2E4990
-color2=#3154AE
-color3=#4E64A9
-color4=#3A5EC2
-color5=#4972D8
-color6=#6683BC
-color7=#abbfea
-color8=#7785a3
-color9=#2E4990
-color10=#3154AE
-color11=#4E64A9
-color12=#3A5EC2
-color13=#4972D8
-color14=#6683BC
-color15=#abbfea
+color0=#1d0f32
+color1=#60569D
+color2=#6F6AAA
+color3=#8F6E97
+color4=#896F9D
+color5=#AE778F
+color6=#C77884
+color7=#ccbbc5
+color8=#8e8289
+color9=#60569D
+color10=#6F6AAA
+color11=#8F6E97
+color12=#896F9D
+color13=#AE778F
+color14=#C77884
+color15=#ccbbc5
+
 
 [hints]
 #font = Monospace 12
