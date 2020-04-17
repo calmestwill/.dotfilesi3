@@ -4,7 +4,7 @@
 #bold_is_bright = true
 #cell_height_scale = 1.0
 #cell_width_scale = 1.0
-#clickable_url = true
+clickable_url = true
 #dynamic_title = true
 font = Terminus 12
 #font = FontAwesome
@@ -51,7 +51,8 @@ cursor_blink = on
 
 
 #-- Special
-background=#1d0f32
+#background=#1d0f32
+background=rgba(29, 15, 50, 0.85)
 foreground=#ccbbc5
 foreground_bold=#ccbbc5
 cursor=#ccbbc5

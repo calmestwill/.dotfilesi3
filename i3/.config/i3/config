@@ -39,18 +39,24 @@ exec --no-startup-id picom
 # Container configuration
 hide_edge_borders smart
 default_border pixel 1
-#gaps inner 7
+smart_gaps on
+gaps inner 7
 # Font
 font pango:Terminus 10
 
 # Colors
-# class                 border  backgr. text    indicator child_border
-client.focused          #4c7899 #285577 #ffffff #2e9ef4   #285577
-client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
-client.unfocused        #333333 #222222 #888888 #292d2e   #222222
-client.urgent           #2f343a #900000 #ffffff #900000   #900000
-client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
-client.background       #ffffff
+set_from_resource $fg i3wm.color7 #f0f0f0
+set_from_resource $bg i3wm.color1 #f0f0f0
+set_from_resource $fg_focus i3wm.color0 #f0f0f0
+set_from_resource $bg_focus i3wm.color7 #f0f0f0
+
+# class                 border       backgr.      text         indicator    child_border
+client.focused          $bg_focus    $bg_focus    $fg_focus    $bg          $bg_focus
+client.focused_inactive $bg          $bg          $fg          $bg          $bg
+client.unfocused        $bg          $bg          $fg          $bg          $bg
+client.urgent           $bg          $bg          $fg          $bg          $bg
+client.placeholder      $bg          $bg          $fg          $bg          $bg
+client.background       $bg
 
 # -----------------------------------------
 # ---------- Input Configuration ----------
@@ -188,6 +194,10 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 # Change container type
 bindsym $mod+b splith
 bindsym $mod+v splitv
+# Change layout types
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
 # Make the current focus fullscreen
 bindsym $mod+f fullscreen
 # Toggle the current focus between tiling and floating mode
