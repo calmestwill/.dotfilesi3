@@ -13,10 +13,13 @@ call plug#begin('~/.vim/plugged')
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree'
+Plug 'dylanaraps/wal.vim'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
 " Airline configuration
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'deus'
+
+" Set the automatic colorscheme
+colorscheme wal
